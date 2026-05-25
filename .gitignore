@@ -1,0 +1,15 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.suo
+*.user
+
+# Logs
+*.log
+
+# Original/unprocessed asset files (keep only the web-ready copies)
+assets/images/PLACE_PHOTO_HERE.txt

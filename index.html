@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andranik Meliqsetyan — Principal Solutions Architect & Team Lead. 10+ years of engineering experience spanning systems design, industrial IoT, embedded engineering, and enterprise data analytics.">
+  <meta property="og:title" content="Andranik Meliqsetyan — Principal Solutions Architect">
+  <meta property="og:description" content="Bridging hardware, software, and data to engineer the future.">
+  <meta property="og:type" content="website">
+  <title>Andranik Meliqsetyan — Principal Solutions Architect</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">AM<span class="accent">.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#speaking" class="nav-link">Speaking</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-greeting reveal-hero">Hello, I'm</p>
+      <h1 class="hero-name reveal-hero">Andranik<br><span class="accent">Meliqsetyan</span></h1>
+      <p class="hero-title reveal-hero">
+        <span class="mono">&lt;</span>&nbsp;Principal Solutions Architect &amp; Team Lead&nbsp;<span class="mono">/&gt;</span>
+      </p>
+      <p class="hero-tagline reveal-hero">Bridging hardware, software, and data to engineer the future.</p>
+      <div class="hero-cta reveal-hero">
+        <a href="#portfolio" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <a href="#about" class="hero-scroll-indicator" aria-label="Scroll down">
+      <span>Scroll</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">01 // About</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <div class="image-wrapper">
+            <img src="assets/images/profile.png" alt="Andranik Meliqsetyan" id="profileImg">
+            <div class="image-placeholder" id="imgPlaceholder">
+              <i class="fa-solid fa-user"></i>
+              <span>Photo coming soon</span>
+            </div>
+          </div>
+          <div class="image-decoration"></div>
+        </div>
+        <div class="about-text reveal">
+          <p>Dynamic engineering professional with <strong>10+ years of experience</strong> spanning systems design, test engineering, and enterprise data management. I started my career in control systems design before transitioning into test and systems engineering across multiple industries.</p>
+          <p>Over time, I've evolved into senior engineering roles, guiding <strong>globally distributed teams</strong> and delivering large-scale, high-impact projects. I've led hardware and software teams focused on R&amp;D for <strong>industrial IoT</strong> and remote health monitoring solutions.</p>
+          <p>Recently, my work has centered on <strong>enterprise data analytics and management</strong> — building solutions that turn raw engineering data into actionable insights for the Semiconductor and Automotive industries.</p>
+          <p>Beyond engineering, Andranik is an <strong>active public speaker</strong> and a frequent invited guest at technology and engineering conferences, sharing expertise on smart manufacturing, industrial IoT, and data-driven engineering with audiences across Armenia and the international tech community.</p>
+          <div class="about-meta">
+            <div class="meta-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Yerevan, Armenia</span>
+            </div>
+            <div class="meta-item">
+              <i class="fa-solid fa-briefcase"></i>
+              <span>National Instruments (NI)</span>
+            </div>
+            <div class="meta-item">
+              <i class="fa-solid fa-microphone"></i>
+              <span>Public Speaker</span>
+            </div>
+            <div class="meta-item">
+              <i class="fa-solid fa-language"></i>
+              <span>Armenian · English · Russian</span>
+            </div>
+            <div class="meta-item">
+              <i class="fa-solid fa-palette"></i>
+              <span>Art &amp; Engineering</span>
+            </div>
+          </div>
+          <div class="about-actions">
+            <a href="#contact" class="btn btn-primary">Let's Connect</a>
+            <a href="https://www.linkedin.com/in/andranik-meliksetyan-737888b7/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SPEAKING ========== -->
+  <section id="speaking">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">// Speaking</span>
+        <h2>Public Speaking</h2>
+      </div>
+      <div class="speaking-grid">
+
+        <div class="speaking-photo reveal">
+          <div class="speaking-image-wrapper">
+            <img src="assets/images/speaking.jpg" alt="Andranik Meliqsetyan speaking at Armenia Tech Conference">
+            <div class="speaking-overlay">
+              <span><i class="fa-solid fa-microphone"></i> Armenia Tech Summit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaking-content reveal">
+          <div class="speaking-badge">
+            <i class="fa-solid fa-microphone-lines"></i>
+            Active Public Speaker
+          </div>
+          <h3>Sharing Engineering Knowledge at Scale</h3>
+          <p>Andranik is a <strong>frequent invited speaker</strong> at engineering and technology conferences, bringing deep technical expertise and real-world project experience to the stage. His talks span a range of topics at the intersection of hardware, software, and data.</p>
+          <p>He engages audiences across <strong>Armenia and the international engineering community</strong>, presenting at industry summits, innovation forums, and academic events — including Armenia's flagship technology convergence conferences.</p>
+          <div class="speaking-topics">
+            <span class="topic-pill"><i class="fa-solid fa-industry"></i> Smart Manufacturing</span>
+            <span class="topic-pill"><i class="fa-solid fa-wifi"></i> Industrial IoT</span>
+            <span class="topic-pill"><i class="fa-solid fa-chart-line"></i> Enterprise Data Systems</span>
+            <span class="topic-pill"><i class="fa-solid fa-users-gear"></i> Engineering Leadership</span>
+          </div>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fa-solid fa-envelope"></i> Invite to Speak
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">03 // Skills</span>
+        <h2>Expertise</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-category reveal">
+          <div class="skill-icon"><i class="fa-solid fa-sitemap"></i></div>
+          <h3>Systems &amp; Architecture</h3>
+          <div class="skill-tags">
+            <span class="tag">Solutions Architecting</span>
+            <span class="tag">Control Systems</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Condition Monitoring</span>
+            <span class="tag">Predictive Maintenance</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3>Embedded Engineering</h3>
+          <div class="skill-tags">
+            <span class="tag">Embedded HW</span>
+            <span class="tag">Embedded SW</span>
+            <span class="tag">Microcontrollers</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">Sensors</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <div class="skill-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Electronics</h3>
+          <div class="skill-tags">
+            <span class="tag">PCB Design</span>
+            <span class="tag">CAD / SolidWorks</span>
+            <span class="tag">Power Electronics</span>
+            <span class="tag">Mechatronics</span>
+            <span class="tag">Robotics</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Software &amp; Tools</h3>
+          <div class="skill-tags">
+            <span class="tag">LabVIEW</span>
+            <span class="tag">RT</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">NI HW &amp; SW</span>
+            <span class="tag">Machine Vision</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Data &amp; Analytics</h3>
+          <div class="skill-tags">
+            <span class="tag">Data Management</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Enterprise Analytics</span>
+            <span class="tag">Semiconductor Data</span>
+            <span class="tag">Automotive Data</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <div class="skill-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>Leadership</h3>
+          <div class="skill-tags">
+            <span class="tag">Team Lead</span>
+            <span class="tag">Global Teams</span>
+            <span class="tag">Program Management</span>
+            <span class="tag">R&amp;D Leadership</span>
+            <span class="tag">Customer Engagement</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========== -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">04 // Experience</span>
+        <h2>Career Timeline</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <h3>Principal Solutions Architect &amp; Team Lead</h3>
+                <p class="timeline-company">
+                  <i class="fa-solid fa-building"></i>
+                  National Instruments (NI) Armenia
+                </p>
+              </div>
+              <span class="timeline-date">2021 — Present</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Leading design and development of enterprise data analytics solutions for engineering domains.</li>
+              <li>Specialising in Semiconductor and Automotive industry data pipelines and analytics platforms.</li>
+              <li>Guiding cross-functional teams to deliver scalable, high-impact data solutions.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag tag-accent">Solutions Architecture</span>
+              <span class="tag">Enterprise Analytics</span>
+              <span class="tag">Semiconductor</span>
+              <span class="tag">Automotive</span>
+              <span class="tag">Team Leadership</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <h3>Principal Program Engineering Specialist</h3>
+                <p class="timeline-company">
+                  <i class="fa-solid fa-building"></i>
+                  National Instruments (NI) Armenia
+                </p>
+              </div>
+              <span class="timeline-date">2016 — 2021</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Joined Global Field Services focusing on test system design, development, and delivery.</li>
+              <li>Led a global initiative to create a new hardware platform for proactive condition monitoring and predictive maintenance.</li>
+              <li>Oversaw end-to-end hardware and software development, manufacturing, and worldwide deployment.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag tag-accent">Hardware Platform</span>
+              <span class="tag">Condition Monitoring</span>
+              <span class="tag">Predictive Maintenance</span>
+              <span class="tag">Global Deployment</span>
+              <span class="tag">IoT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title-group">
+                <h3>Systems Engineer</h3>
+                <p class="timeline-company">
+                  <i class="fa-solid fa-building"></i>
+                  National Instruments (NI) Armenia
+                </p>
+              </div>
+              <span class="timeline-date">2014 — 2016</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Specialised in control systems and semiconductor testing.</li>
+              <li>Partnered with global customers to design and architect advanced test and measurement solutions.</li>
+              <li>Aligned technical requirements with business objectives across international projects.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag tag-accent">Control Systems</span>
+              <span class="tag">Semiconductor Testing</span>
+              <span class="tag">Test &amp; Measurement</span>
+              <span class="tag">Customer Solutions</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">05 // Portfolio</span>
+        <h2>Projects</h2>
+      </div>
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card featured reveal">
+          <div class="card-badge">Featured</div>
+          <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>Smart Manufacturing &amp; Robotics Lab</h3>
+          <p>Led the design and establishment of a Smart Manufacturing and Robotics Lab — integrating embedded systems, robotics, industrial IoT, and data acquisition to create an R&amp;D environment for advanced manufacturing solutions.</p>
+          <div class="card-tags">
+            <span class="tag">Robotics</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Embedded Systems</span>
+            <span class="tag">Mechatronics</span>
+            <span class="tag">LabVIEW</span>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal">
+          <div class="card-icon"><i class="fa-solid fa-industry"></i></div>
+          <h3>Predictive Maintenance Platform</h3>
+          <p>Developed a new global hardware platform for proactive condition monitoring — enabling real-time sensor data acquisition and predictive analytics across distributed industrial assets worldwide.</p>
+          <div class="card-tags">
+            <span class="tag">Condition Monitoring</span>
+            <span class="tag">Predictive Maintenance</span>
+            <span class="tag">NI Hardware</span>
+            <span class="tag">Global Deployment</span>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal">
+          <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+          <h3>Enterprise Data Analytics Solution</h3>
+          <p>Architected and delivered enterprise-scale data analytics platforms for engineering domains including Semiconductor and Automotive, transforming raw test data into actionable engineering insights.</p>
+          <div class="card-tags">
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Semiconductor</span>
+            <span class="tag">Automotive</span>
+            <span class="tag">Solutions Architecture</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EDUCATION ========== -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">06 // Education</span>
+        <h2>Academic Background</h2>
+      </div>
+      <div class="education-grid">
+
+        <div class="education-card reveal">
+          <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="edu-content">
+            <span class="edu-date">2019 — 2022</span>
+            <h3>Master of Engineering</h3>
+            <p class="edu-institution">State Engineering University of Armenia</p>
+            <p class="edu-major">Major: Control Systems</p>
+          </div>
+        </div>
+
+        <div class="education-card reveal">
+          <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="edu-content">
+            <span class="edu-date">2015 — 2019</span>
+            <h3>Bachelor of Engineering</h3>
+            <p class="edu-institution">State Engineering University of Armenia</p>
+            <p class="edu-major">Major: Control Systems &amp; Electronic Engineering</p>
+          </div>
+        </div>
+
+        <div class="education-card reveal">
+          <div class="edu-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div class="edu-content">
+            <span class="edu-date">2010 — 2014</span>
+            <h3>Electronic Engineering Technician</h3>
+            <p class="edu-institution">Yerevan State College of Informatics</p>
+            <p class="edu-major">Electronic Engineering, Power Electronics, Control Systems, HW, SW, CAD</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BLOG ========== -->
+  <section id="blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">07 // Blog</span>
+        <h2>Articles &amp; Insights</h2>
+      </div>
+      <div class="blog-coming-soon reveal">
+        <div class="blog-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <h3>Coming Soon</h3>
+        <p>I'm preparing articles on topics I'm passionate about. Stay tuned.</p>
+        <div class="blog-topics">
+          <span class="topic-pill"><i class="fa-solid fa-wifi"></i> Industrial IoT</span>
+          <span class="topic-pill"><i class="fa-solid fa-server"></i> Enterprise Data Architecture</span>
+          <span class="topic-pill"><i class="fa-solid fa-users-gear"></i> Engineering Leadership</span>
+          <span class="topic-pill"><i class="fa-solid fa-microchip"></i> Embedded Systems</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">08 // Contact</span>
+        <h2>Get in Touch</h2>
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-info reveal">
+          <p class="contact-intro">Have a project in mind, want to collaborate, or just want to say hello? I'd love to hear from you.</p>
+          <div class="contact-items">
+            <a href="mailto:andranik.meliqsetyan@gmail.com" class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">andranik.meliqsetyan@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+37444990033" class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">+374 44 990033</span>
+              </div>
+            </a>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Yerevan, Armenia</span>
+              </div>
+            </div>
+            <a href="https://www.linkedin.com/in/andranik-meliksetyan-737888b7/" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">andranik-meliksetyan</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <!-- Honeypot — hidden from real users, catches bots -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" maxlength="100">
+            <span class="form-error" id="nameError" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" maxlength="254">
+            <span class="form-error" id="emailError" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required maxlength="2000"></textarea>
+            <span class="form-error" id="messageError" role="alert"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span class="btn-text">Send Message</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+          <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Message sent! I'll get back to you soon.</span>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="#hero" class="footer-logo">AM<span class="accent">.</span></a>
+        <p class="footer-copy">&copy; 2026 Andranik Meliqsetyan. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/andranik-meliksetyan-737888b7/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="mailto:andranik.meliqsetyan@gmail.com" aria-label="Send email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

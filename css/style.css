@@ -1,0 +1,409 @@
+/* ============================================================
+   STYLE.CSS — Design Tokens, Reset, Base Styles, Components
+   ============================================================ */
+
+/* --- Google Fonts handled in HTML --- */
+
+/* ============================================================
+   1. DESIGN TOKENS (CSS Custom Properties)
+   ============================================================ */
+:root {
+  /* Colors */
+  --c-bg:           #0d1117;
+  --c-surface:      #161b22;
+  --c-surface-2:    #1c2128;
+  --c-border:       #30363d;
+  --c-border-light: #21262d;
+
+  --c-accent:       #00bfae;
+  --c-accent-dim:   rgba(0, 191, 174, 0.12);
+  --c-accent-glow:  rgba(0, 191, 174, 0.25);
+  --c-accent-2:     #e6a817;
+  --c-accent-2-dim: rgba(230, 168, 23, 0.12);
+
+  --c-text:         #e6edf3;
+  --c-text-muted:   #8b949e;
+  --c-text-faint:   #484f58;
+
+  /* Typography */
+  --f-heading: 'Space Grotesk', system-ui, sans-serif;
+  --f-body:    'Inter', system-ui, sans-serif;
+  --f-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* Layout */
+  --max-w:       1200px;
+  --nav-h:       72px;
+  --section-gap: 110px;
+  --radius:      8px;
+  --radius-lg:   12px;
+
+  /* Shadows */
+  --shadow-sm:   0 1px 6px rgba(0, 0, 0, 0.3);
+  --shadow-md:   0 4px 24px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 30px rgba(0, 191, 174, 0.18);
+
+  /* Transitions */
+  --t-fast:   0.18s ease;
+  --t-normal: 0.32s ease;
+  --t-slow:   0.55s ease;
+}
+
+/* ============================================================
+   2. RESET
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--f-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; display: block; }
+ul  { list-style: none; }
+a   { color: var(--c-accent); text-decoration: none; transition: color var(--t-fast); }
+a:hover { color: var(--c-text); }
+
+button {
+  font-family: var(--f-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ============================================================
+   3. TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--f-heading);
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--c-text);
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 5.2rem); }
+h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); }
+h3 { font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 600; }
+
+p {
+  color: var(--c-text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+p strong {
+  color: var(--c-text);
+  font-weight: 600;
+}
+
+.mono { font-family: var(--f-mono); font-size: 0.88em; color: var(--c-accent); }
+.accent  { color: var(--c-accent); }
+.accent-2 { color: var(--c-accent-2); }
+
+/* ============================================================
+   4. LAYOUT UTILITIES
+   ============================================================ */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
+}
+
+section {
+  padding: var(--section-gap) 0;
+  position: relative;
+}
+
+/* Alternating section backgrounds */
+section:nth-child(even) {
+  background: var(--c-surface);
+}
+
+/* ============================================================
+   5. SECTION HEADERS
+   ============================================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--c-accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.section-header h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-accent-2));
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   6. BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1.8rem;
+  border-radius: var(--radius);
+  font-size: 0.93rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--t-normal);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background var(--t-fast);
+}
+
+.btn-primary {
+  background: var(--c-accent);
+  color: #0d1117;
+  border-color: var(--c-accent);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--c-accent);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--c-accent);
+  border-color: var(--c-accent);
+}
+
+.btn-outline:hover {
+  background: var(--c-accent);
+  color: #0d1117;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   7. TAGS
+   ============================================================ */
+.tag {
+  display: inline-block;
+  padding: 0.28rem 0.75rem;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--c-text-muted);
+  transition: all var(--t-fast);
+  white-space: nowrap;
+}
+
+.tag:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+  background: var(--c-accent-dim);
+}
+
+.tag-accent {
+  background: var(--c-accent-dim);
+  border-color: rgba(0, 191, 174, 0.4);
+  color: var(--c-accent);
+}
+
+/* ============================================================
+   8. NAVIGATION
+   ============================================================ */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background var(--t-normal), border-color var(--t-normal), backdrop-filter var(--t-normal);
+}
+
+#navbar.scrolled {
+  background: rgba(13, 17, 23, 0.92);
+  border-bottom-color: var(--c-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-logo {
+  font-family: var(--f-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--c-text);
+  letter-spacing: -0.02em;
+  transition: color var(--t-fast);
+}
+
+.nav-logo:hover { color: var(--c-accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--c-text-muted);
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  transition: color var(--t-fast), background var(--t-fast);
+  letter-spacing: 0.01em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--c-text);
+  background: var(--c-surface-2);
+}
+
+.nav-link.active { color: var(--c-accent); }
+
+.nav-cta {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--c-accent);
+  padding: 0.42rem 1.1rem;
+  border: 1px solid var(--c-accent);
+  border-radius: 6px;
+  transition: all var(--t-fast);
+  letter-spacing: 0.02em;
+  margin-left: 0.5rem;
+}
+
+.nav-cta:hover {
+  background: var(--c-accent);
+  color: #0d1117;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  border-radius: 4px;
+  transition: background var(--t-fast);
+  z-index: 1100;
+  position: relative;
+}
+
+.nav-toggle:hover { background: var(--c-surface-2); }
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--c-text);
+  border-radius: 2px;
+  transition: transform var(--t-normal), opacity var(--t-normal), width var(--t-normal);
+  transform-origin: center;
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; width: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Nav overlay (mobile) */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  opacity: 0;
+  transition: opacity var(--t-normal);
+}
+
+.nav-overlay.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* ============================================================
+   9. SCROLLBAR & SELECTION
+   ============================================================ */
+::-webkit-scrollbar         { width: 5px; }
+::-webkit-scrollbar-track   { background: var(--c-bg); }
+::-webkit-scrollbar-thumb   { background: var(--c-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-accent); }
+
+::selection {
+  background: var(--c-accent-dim);
+  color: var(--c-accent);
+}
+
+/* ============================================================
+   10. FOCUS VISIBLE (Accessibility)
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
