@@ -20,7 +20,7 @@
   const MOUSE_RADIUS   = 120;   // px — mouse repulsion radius
   const MOUSE_FORCE    = 2.2;
 
-  const COLOR_TEAL  = { r: 0,   g: 191, b: 174 };
+  const COLOR_TEAL  = { r: 0,   g: 204, b: 143 };
   const COLOR_AMBER = { r: 230, g: 168, b: 23  };
 
   let W, H, particles, raf;

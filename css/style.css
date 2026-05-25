@@ -9,21 +9,21 @@
    ============================================================ */
 :root {
   /* Colors */
-  --c-bg:           #111827;   /* was #0d1117 — dark navy, noticeably lighter */
-  --c-surface:      #1a2336;   /* was #161b22 — blue-tinted card surface     */
-  --c-surface-2:    #1f2d42;   /* was #1c2128 — elevated surface             */
-  --c-border:       #2d3f58;   /* was #30363d — blue-tinted border           */
-  --c-border-light: #253349;   /* was #21262d                                */
+  --c-bg:           #182b20;   /* dark forest green — clearly lighter than before */
+  --c-surface:      #1f3828;   /* card / section surface                          */
+  --c-surface-2:    #264530;   /* elevated card surface                           */
+  --c-border:       #345248;   /* green-tinted border                             */
+  --c-border-light: #2b4539;   /* subtle divider                                  */
 
-  --c-accent:       #00bfae;
-  --c-accent-dim:   rgba(0, 191, 174, 0.12);
-  --c-accent-glow:  rgba(0, 191, 174, 0.25);
+  --c-accent:       #00cc8f;   /* emerald-green (shifted from teal)               */
+  --c-accent-dim:   rgba(0, 204, 143, 0.12);
+  --c-accent-glow:  rgba(0, 204, 143, 0.28);
   --c-accent-2:     #e6a817;
   --c-accent-2-dim: rgba(230, 168, 23, 0.12);
 
-  --c-text:         #e8eef5;   /* was #e6edf3 — slightly cooler white        */
-  --c-text-muted:   #96aabf;   /* was #8b949e — brighter, easier to read     */
-  --c-text-faint:   #5a6e84;   /* was #484f58 — more visible faint text      */
+  --c-text:         #e2ede8;   /* slightly green-tinted white                     */
+  --c-text-muted:   #8ead9a;   /* green-tinted secondary text                     */
+  --c-text-faint:   #527060;   /* green-tinted faint text                         */
 
   /* Typography */
   --f-heading: 'Space Grotesk', system-ui, sans-serif;
@@ -273,7 +273,7 @@ section:nth-child(even) {
 }
 
 #navbar.scrolled {
-  background: rgba(17, 24, 39, 0.92);
+  background: rgba(24, 43, 32, 0.93);
   border-bottom-color: var(--c-border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
