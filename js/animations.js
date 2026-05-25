@@ -20,8 +20,8 @@
   const MOUSE_RADIUS   = 120;   // px — mouse repulsion radius
   const MOUSE_FORCE    = 2.2;
 
-  const COLOR_TEAL  = { r: 0,   g: 204, b: 143 };
-  const COLOR_AMBER = { r: 230, g: 168, b: 23  };
+  const COLOR_TEAL  = { r: 100, g: 255, b: 218 };  // #64ffda cyan-mint
+  const COLOR_AMBER = { r: 244, g: 169, b: 58  };  // #f4a93a warm amber
 
   let W, H, particles, raf;
   let mouse = { x: -9999, y: -9999 };
