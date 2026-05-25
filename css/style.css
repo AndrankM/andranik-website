@@ -301,6 +301,16 @@ section:nth-child(even) {
 
 .nav-logo:hover { color: var(--c-accent); }
 
+.logo-bracket {
+  font-family: var(--f-mono);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--c-accent);
+  transition: color var(--t-fast);
+}
+
+.nav-logo:hover .logo-bracket { color: var(--c-text); }
+
 .nav-links {
   display: flex;
   align-items: center;

@@ -5,74 +5,145 @@
 'use strict';
 
 /* ============================================================
-   1. HERO CANVAS — Animated dot grid with subtle movement
+   1. HERO CANVAS — Particle network with mouse interaction
    ============================================================ */
 (function initHeroCanvas() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
 
-  const ctx    = canvas.getContext('2d');
-  const COLOR  = '#00bfae';
-  const DOT_R  = 1.2;
-  const SPACING = 36;
-  let   W, H, cols, rows, dots, raf;
+  const ctx = canvas.getContext('2d');
 
+  // Config
+  const PARTICLE_COUNT = 88;
+  const MAX_DIST       = 150;   // px — max distance to draw a line
+  const SPEED          = 0.45;
+  const MOUSE_RADIUS   = 120;   // px — mouse repulsion radius
+  const MOUSE_FORCE    = 2.2;
+
+  const COLOR_TEAL  = { r: 0,   g: 191, b: 174 };
+  const COLOR_AMBER = { r: 230, g: 168, b: 23  };
+
+  let W, H, particles, raf;
+  let mouse = { x: -9999, y: -9999 };
+
+  // ---- Build ----
   function resize() {
     W = canvas.offsetWidth;
     H = canvas.offsetHeight;
     canvas.width  = W;
     canvas.height = H;
-    cols = Math.ceil(W / SPACING) + 1;
-    rows = Math.ceil(H / SPACING) + 1;
-    buildDots();
+    buildParticles();
   }
 
-  function buildDots() {
-    dots = [];
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        dots.push({
-          x:     c * SPACING,
-          y:     r * SPACING,
-          ox:    c * SPACING,    // origin x
-          oy:    r * SPACING,    // origin y
-          phase: Math.random() * Math.PI * 2,
-          speed: 0.3 + Math.random() * 0.4,
-          amp:   2 + Math.random() * 3,
-        });
-      }
-    }
+  function buildParticles() {
+    particles = Array.from({ length: PARTICLE_COUNT }, () => {
+      const isTeal = Math.random() > 0.18; // ~82% teal, ~18% amber
+      const c = isTeal ? COLOR_TEAL : COLOR_AMBER;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = SPEED * (0.5 + Math.random() * 0.8);
+      return {
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        r:  1.2 + Math.random() * 2.2,
+        c,
+      };
+    });
   }
 
-  function draw(t) {
+  // ---- Draw ----
+  function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    const time = t * 0.001;
+    // Move & wrap
+    for (const p of particles) {
+      // Mouse repulsion
+      const mdx  = p.x - mouse.x;
+      const mdy  = p.y - mouse.y;
+      const mdist = Math.hypot(mdx, mdy);
+      if (mdist < MOUSE_RADIUS && mdist > 0) {
+        const force = (1 - mdist / MOUSE_RADIUS) * MOUSE_FORCE;
+        p.vx += (mdx / mdist) * force * 0.06;
+        p.vy += (mdy / mdist) * force * 0.06;
+      }
 
-    for (const d of dots) {
-      const x = d.ox + Math.sin(time * d.speed + d.phase) * d.amp;
-      const y = d.oy + Math.cos(time * d.speed + d.phase + 1) * d.amp;
+      // Speed cap
+      const spd = Math.hypot(p.vx, p.vy);
+      const maxSpd = SPEED * 1.8;
+      if (spd > maxSpd) {
+        p.vx = (p.vx / spd) * maxSpd;
+        p.vy = (p.vy / spd) * maxSpd;
+      }
 
-      // Distance from centre — dots near centre are brighter
-      const cx = W / 2;
-      const cy = H / 2;
-      const dist = Math.hypot(x - cx, y - cy);
-      const maxDist = Math.hypot(cx, cy);
-      const alpha = 0.08 + 0.18 * (1 - dist / maxDist);
+      p.x += p.vx;
+      p.y += p.vy;
 
+      // Soft wrap
+      if (p.x < -10)    p.x = W + 10;
+      if (p.x > W + 10) p.x = -10;
+      if (p.y < -10)    p.y = H + 10;
+      if (p.y > H + 10) p.y = -10;
+    }
+
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx   = particles[i].x - particles[j].x;
+        const dy   = particles[i].y - particles[j].y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < MAX_DIST) {
+          const alpha = (1 - dist / MAX_DIST) * 0.38;
+          const c = particles[i].c;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(${c.r},${c.g},${c.b},${alpha})`;
+          ctx.lineWidth   = 0.7;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw particles
+    for (const p of particles) {
+      const { r, g, b } = p.c;
+
+      // Glow halo
+      const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+      grd.addColorStop(0,   `rgba(${r},${g},${b},0.35)`);
+      grd.addColorStop(1,   `rgba(${r},${g},${b},0)`);
       ctx.beginPath();
-      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-      ctx.fillStyle = COLOR;
-      ctx.globalAlpha = alpha;
+      ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+
+      // Core dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},0.85)`;
       ctx.fill();
     }
 
-    ctx.globalAlpha = 1;
     raf = requestAnimationFrame(draw);
   }
 
-  // Stop animation when hero is not visible (performance)
-  const observer = new IntersectionObserver((entries) => {
+  // ---- Mouse tracking ----
+  const hero = document.getElementById('hero');
+  if (hero) {
+    hero.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    }, { passive: true });
+    hero.addEventListener('mouseleave', () => {
+      mouse.x = -9999;
+      mouse.y = -9999;
+    });
+  }
+
+  // ---- Visibility (pause when off-screen) ----
+  const visObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         if (!raf) raf = requestAnimationFrame(draw);
@@ -83,12 +154,9 @@
     });
   }, { threshold: 0.01 });
 
-  const hero = document.getElementById('hero');
-  if (hero) observer.observe(hero);
+  if (hero) visObserver.observe(hero);
 
-  window.addEventListener('resize', () => {
-    resize();
-  }, { passive: true });
+  window.addEventListener('resize', resize, { passive: true });
 
   resize();
   raf = requestAnimationFrame(draw);
