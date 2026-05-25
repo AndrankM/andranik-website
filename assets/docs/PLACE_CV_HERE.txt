@@ -1,0 +1,5 @@
+Place your CV/Resume PDF here.
+
+Rename the file to: CV_Andranik_Meliqsetyan.pdf
+
+Once added, the "CV" download button in the navigation bar will work automatically.

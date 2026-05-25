@@ -418,3 +418,146 @@ section:nth-child(even) {
   outline-offset: 3px;
   border-radius: 3px;
 }
+
+/* ============================================================
+   11. SCROLL PROGRESS BAR
+   ============================================================ */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-accent-2));
+  z-index: 2000;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ============================================================
+   12. BACK TO TOP BUTTON
+   ============================================================ */
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: 50%;
+  color: var(--c-accent);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 900;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity var(--t-normal), transform var(--t-normal),
+              background var(--t-fast), box-shadow var(--t-fast);
+}
+
+#backToTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#backToTop:hover {
+  background: var(--c-accent);
+  color: var(--c-bg);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ============================================================
+   13. DOWNLOAD CV BUTTON (nav)
+   ============================================================ */
+.nav-cv {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--c-accent);
+  padding: 0.38rem 0.9rem;
+  border: 1px solid var(--c-accent);
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 0.4rem;
+  transition: all var(--t-fast);
+  letter-spacing: 0.04em;
+}
+
+.nav-cv:hover {
+  background: var(--c-accent);
+  color: var(--c-bg);
+}
+
+/* ============================================================
+   14. COPY EMAIL TIP
+   ============================================================ */
+button.contact-item {
+  background: none;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.copy-tip {
+  margin-left: auto;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  color: var(--c-text-faint);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  transition: color var(--t-fast);
+  flex-shrink: 0;
+}
+
+.copy-tip.copied {
+  color: var(--c-accent);
+}
+
+/* ============================================================
+   15. PORTFOLIO CARD OVERLAY
+   ============================================================ */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: rgba(13, 32, 53, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--t-normal);
+  pointer-events: none;
+}
+
+.portfolio-card:hover .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card-overlay span {
+  font-family: var(--f-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--c-accent);
+  border: 1px solid var(--c-accent);
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.card-overlay span:hover {
+  background: var(--c-accent);
+  color: var(--c-bg);
+}

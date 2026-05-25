@@ -245,3 +245,67 @@
     });
   });
 })();
+
+/* ============================================================
+   6. SCROLL PROGRESS BAR
+   ============================================================ */
+(function initScrollProgress() {
+  const bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+
+  function update() {
+    const scrollTop = window.scrollY;
+    const docH      = document.documentElement.scrollHeight - window.innerHeight;
+    const pct       = docH > 0 ? (scrollTop / docH) * 100 : 0;
+    bar.style.width = `${pct}%`;
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* ============================================================
+   7. BACK TO TOP BUTTON
+   ============================================================ */
+(function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ============================================================
+   8. COPY EMAIL TO CLIPBOARD
+   ============================================================ */
+(function initCopyEmail() {
+  const trigger = document.getElementById('copyEmail');
+  if (!trigger) return;
+
+  trigger.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const email = trigger.dataset.email;
+    if (!email) return;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      const tip = trigger.querySelector('.copy-tip');
+      if (tip) {
+        tip.textContent = 'Copied!';
+        tip.classList.add('copied');
+        setTimeout(() => {
+          tip.textContent = 'Click to copy';
+          tip.classList.remove('copied');
+        }, 2200);
+      }
+    } catch {
+      // Fallback: open mail client
+      window.location.href = `mailto:${email}`;
+    }
+  });
+})();

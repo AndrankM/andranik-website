@@ -9,6 +9,9 @@
   <meta property="og:type" content="website">
   <title>Andranik Meliqsetyan — Principal Solutions Architect</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +26,12 @@
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
+
+  <!-- Scroll progress bar -->
+  <div id="scrollProgress"></div>
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <!-- ========== NAVIGATION ========== -->
   <nav id="navbar">
@@ -42,6 +51,7 @@
         <li><a href="#education" class="nav-link">Education</a></li>
         <li><a href="#blog" class="nav-link">Blog</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <li><a href="assets/docs/CV_Andranik_Meliqsetyan.pdf" class="nav-cv" download aria-label="Download CV"><i class="fa-solid fa-file-arrow-down"></i> CV</a></li>
       </ul>
     </div>
   </nav>
@@ -392,6 +402,7 @@
             <span class="tag">Mechatronics</span>
             <span class="tag">LabVIEW</span>
           </div>
+          <div class="card-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</span></div>
         </div>
 
         <div class="portfolio-card reveal">
@@ -404,6 +415,7 @@
             <span class="tag">NI Hardware</span>
             <span class="tag">Global Deployment</span>
           </div>
+          <div class="card-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</span></div>
         </div>
 
         <div class="portfolio-card reveal">
@@ -416,6 +428,7 @@
             <span class="tag">Automotive</span>
             <span class="tag">Solutions Architecture</span>
           </div>
+          <div class="card-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</span></div>
         </div>
 
       </div>
@@ -498,13 +511,14 @@
         <div class="contact-info reveal">
           <p class="contact-intro">Have a project in mind, want to collaborate, or just want to say hello? I'd love to hear from you.</p>
           <div class="contact-items">
-            <a href="mailto:andranik.meliqsetyan@gmail.com" class="contact-item">
+            <button id="copyEmail" class="contact-item" data-email="andranik.meliqsetyan@gmail.com" aria-label="Copy email address">
               <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
               <div class="contact-text">
                 <span class="contact-label">Email</span>
                 <span class="contact-value">andranik.meliqsetyan@gmail.com</span>
               </div>
-            </a>
+              <span class="copy-tip">Click to copy</span>
+            </button>
             <a href="tel:+37444990033" class="contact-item">
               <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
               <div class="contact-text">
