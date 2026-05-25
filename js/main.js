@@ -191,7 +191,7 @@
     if (el) el.addEventListener('input', () => clearError(id));
   });
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     // Honeypot check
@@ -200,29 +200,45 @@
 
     if (!validate()) return;
 
-    const name    = getField('name').value.trim();
-    const email   = getField('email').value.trim();
-    const message = getField('message').value.trim();
+    const btnText = submitBtn?.querySelector('.btn-text');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      if (btnText) btnText.textContent = 'Sending\u2026';
+    }
 
-    // Build mailto link
-    const subject = encodeURIComponent(`[Website] Message from ${name}`);
-    const body    = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-    const mailto  = `mailto:andranik.meliqsetyan@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
 
-    window.location.href = mailto;
-
-    // Show success state
-    form.reset();
-    if (submitBtn)  submitBtn.disabled = true;
-    if (successMsg) successMsg.classList.add('visible');
-
-    // Re-enable after a moment
-    setTimeout(() => {
-      if (submitBtn)  submitBtn.disabled = false;
-      if (successMsg) successMsg.classList.remove('visible');
-    }, 6000);
+      if (response.ok) {
+        form.reset();
+        if (successMsg) successMsg.classList.add('visible');
+        setTimeout(() => {
+          if (successMsg) successMsg.classList.remove('visible');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            if (btnText) btnText.textContent = 'Send Message';
+          }
+        }, 6000);
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch {
+      // Fallback: open mail client if Formspree not configured yet
+      const name    = getField('name').value.trim();
+      const email   = getField('email').value.trim();
+      const message = getField('message').value.trim();
+      const subject = encodeURIComponent(`[Website] Message from ${name}`);
+      const body    = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:andranik.meliqsetyan@gmail.com?subject=${subject}&body=${body}`;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        if (btnText) btnText.textContent = 'Send Message';
+      }
+    }
   });
 })();
 

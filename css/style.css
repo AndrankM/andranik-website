@@ -543,7 +543,7 @@ button.contact-item {
   pointer-events: auto;
 }
 
-.card-overlay span {
+.card-overlay a {
   font-family: var(--f-mono);
   font-size: 0.9rem;
   font-weight: 500;
@@ -554,10 +554,11 @@ button.contact-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  text-decoration: none;
   transition: background var(--t-fast), color var(--t-fast);
 }
 
-.card-overlay span:hover {
+.card-overlay a:hover {
   background: var(--c-accent);
   color: var(--c-bg);
 }
