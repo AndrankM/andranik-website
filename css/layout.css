@@ -89,7 +89,7 @@
   gap: 0;
   flex-wrap: wrap;
   padding: 1.25rem 2rem;
-  background: rgba(22, 27, 34, 0.75);
+  background: rgba(26, 35, 54, 0.8);
   border: 1px solid var(--c-border);
   border-radius: var(--radius-lg);
   backdrop-filter: blur(8px);
